@@ -12,13 +12,11 @@ export default async function graphQLFetch(
   query,
   variables = {},
   showError = null,
-  cookie = null,
 ) {
   const apiEndpoint = (__isBrowser__)  // eslint-disable-line no-undef
     ? window.ENV.UI_API_ENDPOINT
     : process.env.UI_SERVER_API_ENDPOINT;
   const headers = { 'Content-Type': 'application/json' };
-  if (cookie) headers.Cookie = cookie;
   try {
     const response = await fetch(apiEndpoint, {
       method: 'POST',

@@ -1,6 +1,6 @@
 import serialize from 'serialize-javascript';
 
-export default function template(body, initialData, userData) {
+export default function template(body, initialData) {
   return `<!DOCTYPE html>
 <html>
   <head>
@@ -26,7 +26,6 @@ export default function template(body, initialData, userData) {
     
     <script>
       window.__INITIAL_DATA__=${serialize(initialData)}
-      window.__USER_DATA__=${serialize(userData)}
     </script>
     <script src="/env.js"></script>
     <script src="/vendor.bundle.js"></script>

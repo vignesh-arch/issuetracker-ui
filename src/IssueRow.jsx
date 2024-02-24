@@ -1,14 +1,11 @@
 import React from 'react';
 import { Glyphicon, Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
-import { Link, withRouter, NavLink } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import UserContext from './UserContext';
 
 class IssueRowPlain extends React.Component{
   render() {
     const { issue, location: { search }, closeIssue, index, deleteIssue } = this.props;
-    const user = this.context;
-    const disabled = !user.signedIn;
     const url = { pathname: `/issues/${issue.id}`, search };
     const closeTooltip = <Tooltip id='close-tooltip'>Close Issue</Tooltip>;
     const deleteTooltip = <Tooltip id='delete-tooltip'>Delete Issue</Tooltip>;
@@ -46,7 +43,7 @@ class IssueRowPlain extends React.Component{
             delayShow={1000}
             overlay={closeTooltip}
           >
-            <Button disabled={disabled} bsSize="xsmall" type="button" onClick={onClose}>
+            <Button bsSize="xsmall" type="button" onClick={onClose}>
               <Glyphicon glyph="remove" />
             </Button>
           </OverlayTrigger>
@@ -56,7 +53,7 @@ class IssueRowPlain extends React.Component{
             delayShow={1000}
             overlay={deleteTooltip}
           >
-            <Button disabled={disabled} bsSize="xsmall" type="button" onClick={onDelete}>
+            <Button bsSize="xsmall" type="button" onClick={onDelete}>
               <Glyphicon glyph="trash" />
             </Button>
           </OverlayTrigger>
@@ -67,7 +64,5 @@ class IssueRowPlain extends React.Component{
   }
 }
 
-IssueRowPlain.contextType = UserContext;
 const IssueRow = withRouter(IssueRowPlain);
-delete IssueRow.contextType;
 export default IssueRow;
