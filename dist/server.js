@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "3ad8eb83236ba37f22c0";
+/******/ 	var hotCurrentHash = "3e6996e50df0551ce32c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1143,7 +1143,7 @@ app.get('/env.js', (req, res) => {
 app.get('*', (req, res, next) => {
   Object(_render_jsx__WEBPACK_IMPORTED_MODULE_5__["default"])(req, res, next);
 });
-const port = process.env.UI_SERVER_PORT || 4000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`UI Server Started at Port ${port}`);
 });
